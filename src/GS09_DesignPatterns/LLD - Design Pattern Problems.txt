@@ -1,0 +1,125 @@
+﻿Behavioural Design Patterns 
+—---------------------------------------
+Code Repo: https://drive.google.com/drive/folders/1aDFsmUC_QtST5Y1KJ966mo37lRVCQLAJ
+In the Exercises project, look at the template/Window class. This class represents a window in a GUI framework.
+Application developers can use this framework to build desktop applications.
+The Window class has a method for closing a window. Certain windows
+
+
+1. Memento Pattern (UNDO in Text Editor)
+In the Exercises project, look at the code in the memento/Document class.
+This class represents a document in a word processor like MS Word or Apple Pages.
+Our Document class has three attributes:
+-content
+-fontName
+-fontSize
+We should allow the user to undo the changes to any of these attributes.
+In the future, we may add additional attributes in this class and these attributes should also be undoable.
+Implement the undo feature using the memento pattern.
+
+
+2. State Pattern (Photoshop Tool)
+In the Exercises project, look at the code in the state/DirectionService class.
+This is the class that powers our mapping app.
+It provides two methods for calculating the estimated time of arrival (ETA) and the direction between two points.
+Identify the problems in this implementation.
+Then, refactor the code to use the state pattern. What are the benefits of the new implementation?
+
+
+3. Iterator Pattern Exercise
+In the Exercises project, look at the iterator/ProductCollection class.
+This class only allows us to add a product to a collection.
+Once we add a bunch of products to a collection, there is no way to iterate that collection and print the products.
+Implement this feature using the iterator pattern.
+
+
+4. Strategy Pattern 
+Exercise In the Exercises project, look at the strategy/ChatClient class.
+This class uses an encryption algorithm to encrypt a message before sending it out.
+What are the problems in this implementation? Refactor the code using the strategy pattern.
+What are the benefits of the new implementation?
+
+
+5. Observer Pattern
+Exercise We’re building an application for watching the price of various stocks.
+There are two places in our application where we need to display the stocks:
+- StatusBar: shows the popular stocks
+- StockListView: shows the complete list of stocks.
+When the price of a stock changes, the corresponding views (StatusBar and/or StockListView) need to be refreshed to reflect the latest price.
+Our application currently does not have the ability to communicate the change in stock prices to the corresponding views.
+Use the observer pattern to solve this problem.
+
+
+6. Template Method Pattern 
+In the Exercises project, look at the template/Window class.
+This class represents a window in a GUI framework.
+Application developers can use this framework to build desktop applications.
+The Window class has a method for closing a window.
+Certain windows may need to execute some code before or after a window is closed.
+We cannot hardcode this behavior in the Window class because the code that needs to be executed is different from one window to another.
+Use the template method pattern to solve this problem.
+
+
+7. Command Pattern
+Exercise In the Exercises project, look at the command/VideoEditor class.
+This class represents the operations we can perform on a video, such as adding a label to it or changing its contrast.
+We need to allow the user to undo any changes he/she makes to a video.
+
+
+8. Factory Design Pattern
+You are tasked with designing a system for a pizza delivery company.
+The company offers various types of pizzas such as Margherita, Pepperoni, and Veggie.
+Each type of pizza has its own unique preparation process - prepare(), bake(), cut(), box() and ingredients.
+Your goal is to implement a flexible and scalable solution for creating different types of pizzas
+without modifying the client code whenever a new type of pizza is introduced.
+PizzaFactory 
+* SpecialFactoryClass for each type of pizza
+VeggieFactory.createPizza();
+Write a client code that use factory classes to make different type of pizzas.
+
+
+9. Adapter Design Pattern
+You are working on a weather application that displays weather information.
+The application already uses a standard WeatherService interface to fetch weather data from various providers.
+Now, you need to integrate a new weather data provider that has a different interface for fetching weather data.
+Your task is to use the Adapter design pattern to adapt the new provider's interface to the existing WeatherService interface.
+Requirements:
+1. WeatherService Interface:
+   * Define a common interface WeatherService for fetching weather data.
+   * This interface should include methods like getTemperature(), getHumidity(), and getWindSpeed().
+2. Existing Concrete Weather Services:
+   * Implement the WeatherService interface for at least two existing weather data providers.
+   * IndianMetDept 
+   * PunjabMetDept
+3. New Weather Provider:
+   * The new weather provider class should have a different interface with methods fetchTemperature(), fetchHumidity(), and fetchWindSpeed().
+        InternationMetDept()
+4. Adapter Class:
+   * Implement an adapter class that adapts the new weather provider's interface to the WeatherService interface.
+5. Client Code:
+   * Write client code that uses the WeatherService interface to fetch and display weather data from different providers, including the new provider through the adapter.
+Objectives:
+* Understand the principles of the Adapter design pattern.
+* Learn how to encapsulate the adaptation logic within an adapter class.
+* Gain hands-on experience in integrating a new provider with an existing system using the Adapter pattern.
+
+
+10. Decorator Design Pattern
+You are designing a beverage customization system for a coffee shop. The system should allow customers to create and customize their drinks by adding various ingredients such as milk, sugar, and flavor syrups. Each customization option adds a cost to the base price of the beverage. Your task is to use the Decorator design pattern to implement this system, enabling flexible and dynamic addition of ingredients to beverages.
+Requirements:
+1. Beverage Interface:
+   * Define a common interface Beverage with methods getDescription() and getCost().
+   * getDescription → should all ingredients of the beverage
+   * cost → total cost after adding all the ingredients
+2. Concrete Beverages:
+   * Implement the Beverage interface for at least two types of beverages (e.g., Espresso, HouseBlend).
+3. Decorator Abstract Class:
+   * Define an abstract decorator class that implements the Beverage interface and holds a reference to a Beverage object.
+4. Concrete Decorators:
+   * Implement concrete decorators for various ingredients such as Milk, Sugar, and Syrup.
+5. Client Code:
+   * Write client code that creates beverages and dynamically adds ingredients using decorators. Display the description and cost of the final beverage.
+Objectives:
+* Understand the principles of the Decorator design pattern.
+* Learn how to extend the behavior of objects at runtime by composing objects with decorators.
+* Gain hands-on experience in implementing flexible and reusable code.
