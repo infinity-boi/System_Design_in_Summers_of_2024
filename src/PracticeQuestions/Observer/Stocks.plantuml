@@ -1,0 +1,41 @@
+@startuml
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+class Main {
+  + main(String[]): void
+}
+interface Observer << interface >> {
+  + update(): void
+}
+class StatusBar {
+  + update(): void
+}
+class Stock {
+  + notifyObservers(): void
+  + registerObserver(Observer): void
+  + removeObserver(Observer): void
+   price: double
+   symbol: String
+}
+class StockListView {
+  + update(): void
+}
+interface Subject << interface >> {
+  + registerObserver(Observer): void
+  + removeObserver(Observer): void
+  + notifyObservers(): void
+}
+
+Main           -[#595959,dashed]->  StatusBar     : "«create»"
+Main           -[#595959,dashed]->  Stock         : "«create»"
+Main           -[#595959,dashed]->  StockListView : "«create»"
+StatusBar      -[#008200,dashed]-^  Observer      
+StatusBar     "1" *-[#595959,plain]-> "stock\n1" Stock         
+Stock         "1" *-[#595959,plain]-> "observers\n*" Observer      
+Stock          -[#008200,dashed]-^  Subject       
+StockListView  -[#008200,dashed]-^  Observer      
+StockListView "1" *-[#595959,plain]-> "stock\n1" Stock         
+@enduml

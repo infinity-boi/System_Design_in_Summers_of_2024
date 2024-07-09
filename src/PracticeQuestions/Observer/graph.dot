@@ -1,0 +1,26 @@
+digraph "package" {
+
+splines  = ortho;
+fontname = "Inconsolata";
+
+node [colorscheme = ylgnbu4];
+edge [colorscheme = dark28, dir = both];
+
+Main          [shape = record, pos = "1.703,1.077!"     , label = "{ Main | + main(String[]) : void\l }"];
+Observer      [shape = record, pos = "3.780,8.054!"     , label = "{ \<\<interface\>\>\nObserver | + update() : void\l }"];
+StatusBar     [shape = record, pos = "1.790,2.998!"     , label = "{ StatusBar | + update() : void\l }"];
+Stock         [shape = record, pos = "3.420,6.086!"     , label = "{ Stock | + notifyObservers() : void\l + registerObserver(Observer) : void\l + removeObserver(Observer) : void\l| price : double\l  symbol : String\l }"];
+StockListView [shape = record, pos = "4.884,2.742!"     , label = "{ StockListView | + update() : void\l }"];
+Subject       [shape = record, pos = "-1.108,7.773!"    , label = "{ \<\<interface\>\>\nSubject | + registerObserver(Observer) : void\l + removeObserver(Observer) : void\l + notifyObservers() : void\l }"];
+
+Main          -> StatusBar     [color = "#595959", style = dashed, arrowtail = none    , arrowhead = vee     , taillabel = "", label = "«create»", headlabel = ""];
+Main          -> Stock         [color = "#595959", style = dashed, arrowtail = none    , arrowhead = vee     , taillabel = "", label = "«create»", headlabel = ""];
+Main          -> StockListView [color = "#595959", style = dashed, arrowtail = none    , arrowhead = vee     , taillabel = "", label = "«create»", headlabel = ""];
+StatusBar     -> Observer      [color = "#008200", style = dashed, arrowtail = none    , arrowhead = normal  , taillabel = "", label = "", headlabel = ""];
+StatusBar     -> Stock         [color = "#595959", style = solid , arrowtail = diamond , arrowhead = vee     , taillabel = "1", label = "", headlabel = "stock\n1"];
+Stock         -> Observer      [color = "#595959", style = solid , arrowtail = diamond , arrowhead = vee     , taillabel = "1", label = "", headlabel = "observers\n*"];
+Stock         -> Subject       [color = "#008200", style = dashed, arrowtail = none    , arrowhead = normal  , taillabel = "", label = "", headlabel = ""];
+StockListView -> Observer      [color = "#008200", style = dashed, arrowtail = none    , arrowhead = normal  , taillabel = "", label = "", headlabel = ""];
+StockListView -> Stock         [color = "#595959", style = solid , arrowtail = diamond , arrowhead = vee     , taillabel = "1", label = "", headlabel = "stock\n1"];
+
+}
