@@ -1,0 +1,34 @@
+@startuml
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+class BoldDecorator {
+  + format(): String
+}
+class ItalicDecorator {
+  + format(): String
+}
+class Main {
+  + main(String[]): void
+}
+class PlainText {
+  + format(): String
+}
+interface TextComponent << interface >> {
+  + format(): String
+}
+class TextDecorator {
+  + format(): String
+}
+class UnderLineDecorator {
+  + format(): String
+}
+
+BoldDecorator       -[#000082,plain]-^  TextDecorator      
+ItalicDecorator     -[#000082,plain]-^  TextDecorator      
+PlainText           -[#008200,dashed]-^  TextComponent      
+TextDecorator       -[#008200,dashed]-^  TextComponent      
+UnderLineDecorator  -[#000082,plain]-^  TextDecorator      
+@enduml
