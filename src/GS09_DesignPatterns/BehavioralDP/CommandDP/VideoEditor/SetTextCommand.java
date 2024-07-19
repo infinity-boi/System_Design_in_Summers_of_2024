@@ -1,4 +1,4 @@
-package GS09_DesignPatterns.BehavioralDP.CommandDP.Command;
+package GS09_DesignPatterns.BehavioralDP.CommandDP.VideoEditor;
 
 public class SetTextCommand implements Command {
     private VideoEditor editor;
