@@ -1,6 +1,6 @@
 package GS09_DesignPatterns.StructuralDP.ProxyDP.Youtube;
 
-// The application can configure proxies on the fly.
+// The application that can configure proxies on the fly.
 class Application {
     public void init() {
         ThirdPartyYouTubeLib aYouTubeService = new ThirdPartyYouTubeClass();
